@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -27,7 +28,8 @@ namespace Tests.Util
                 {
                     app.UseAuthentication();
 
-                    app.Use((context, next) =>
+
+                    Task Middleware(HttpContext context, Func<Task> next)
                     {
                         var user = context.User;
 
@@ -41,7 +43,9 @@ namespace Tests.Util
                         }
 
                         return Task.CompletedTask;
-                    });
+                    }
+
+                    app.Use(Middleware);
                 }));
         }
 

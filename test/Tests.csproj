@@ -1,8 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
+
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageOutputPath>$(SolutionDir)..\..\nuget\</PackageOutputPath>
   </PropertyGroup>
+
+  <Target Name="CopyPackage" AfterTargets="Pack">
+    <Exec Command="if exist %userprofile%\.nuget\Packages\Net6.IdentityServer4.EntityFramework.Storage rmdir /s /q %userprofile%\.nuget\Packages\Net6.IdentityServer4.EntityFramework.Storage" />
+  </Target>
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.9.0" />
