@@ -4,7 +4,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <IdentityServer4Version Condition="'$(IdentityServer4Version)' == ''">1.0.0</IdentityServer4Version>
-    <Version>$(IdentityServer4Version)$(Suffix)</Version>
+    <Version>$(VersionPrefix).$(VersionSuffix)</Version>
   </PropertyGroup>
 
   <PropertyGroup>
