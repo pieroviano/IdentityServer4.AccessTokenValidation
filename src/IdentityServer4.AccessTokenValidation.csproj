@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-    <Import Condition="Exists('$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props')" Project="$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props" />
+    <Import Condition="Exists('$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props')" Project="$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props" />
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <IdentityServer4Version Condition="'$(IdentityServer4Version)' == ''">1.0.0</IdentityServer4Version>
@@ -42,7 +42,7 @@
         <PackageReference Include="IdentityModel.AspNetCore.OAuth2Introspection" Version="4.0.1" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0" />
         <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" Version="1.0.0-beta2-19367-01" />
-        <PackageReference Include="NuGetUtility" PrivateAssets="All" Version="$(NuGetUtilityVersion)" />
+        <PackageReference Include="Net4x.NuGetUtility" PrivateAssets="All" Version="$(NuGetUtilityVersion)" />
     </ItemGroup>
-    <Import Condition="Exists('$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets')" Project="$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets" />
+    <Import Condition="Exists('$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets')" Project="$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets" />
 </Project>
